@@ -96,15 +96,12 @@ const hue = (h: number) => `hsl(${h}, 100%, 50%)`;
  */
 
 const container: React.CSSProperties = {
-  margin: "100px auto",
-  maxWidth: 500,
-  paddingBottom: 100,
   width: "100%",
 };
 
 const header: React.CSSProperties = {
   textAlign: "center",
-  padding: "0px 20px",
+  padding: "10px 20px",
 };
 
 const headerTitle: React.CSSProperties = {
@@ -125,7 +122,6 @@ const headerSubtitle: React.CSSProperties = {
 
 const footer: React.CSSProperties = {
   textAlign: "center",
-  padding: "80px 20px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -134,6 +130,7 @@ const footer: React.CSSProperties = {
 const footerText: React.CSSProperties = {
   fontSize: "clamp(1.3rem, 4vw, 1.8rem)",
   color: "#be185d",
+  marginTop: 30,
   fontWeight: "bold",
   fontFamily: "serif",
 };
@@ -145,7 +142,7 @@ const cardContainer: React.CSSProperties = {
   alignItems: "center",
   position: "relative",
   paddingTop: 20,
-  marginBottom: -50,
+  marginBottom: -20,
 };
 const splash: React.CSSProperties = {
   position: "absolute",
@@ -177,13 +174,13 @@ const iconContainer: React.CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  minHeight: 150,
+  flexShrink: 0,
 };
 
 const textContainer: React.CSSProperties = {
   textAlign: "center",
   zIndex: 10,
-  paddingLeft: 6,
-  paddingRight: 6,
   width: "100%",
 };
 
@@ -191,16 +188,15 @@ const cardTitle: React.CSSProperties = {
   fontSize: "clamp(1.2rem, 4vw, 1.5rem)",
   fontWeight: "bold",
   color: "#1f2937",
-  marginBottom: 15,
   fontFamily: "serif",
-  lineHeight: "1.3",
 };
 
 const cardMessage: React.CSSProperties = {
-  fontSize: "clamp(0.85rem, 2.5vw, 1rem)",
+  fontSize: "clamp(1rem, 2.5vw, 1rem)",
   color: "#4b5563",
   lineHeight: "1.5",
   fontWeight: "200",
+  padding: 10,
   textAlign: "center",
   maxWidth: "100%",
   wordBreak: "break-word",
@@ -230,9 +226,26 @@ const particle2: React.CSSProperties = {
  */
 const loveStories: [React.ReactNode, string, string, number, number][] = [
   [
-    <Heart className="w-8 h-8" />,
-    "Pertama Bertemu",
-    "Waktu pertama lihat kamu, Najmita, rasanya dunia berhenti sebentar. Ada sesuatu di senyummu yang bikin hati ini yakin, kamu orang yang selama ini aku tunggu.",
+    <div
+      style={{
+        width: "120px",
+        height: "150px",
+        borderRadius: "8px",
+        overflow: "hidden",
+      }}
+    >
+      <img
+        src="/images/keenam.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    </div>,
+    "ketemu lagi setelah lama gaketemu",
+    "waktu pertama ketemu lagi, kayanya aku beneran suka dan jatuh hati, wkwkwkwkwkw, kesanya alay ya, tapi emang beneran itu yang terjadi, dan ya, aku memutuskan untuk berani nyatain kalo aku suka sama kamu",
     340,
     10,
   ],
@@ -240,46 +253,72 @@ const loveStories: [React.ReactNode, string, string, number, number][] = [
     <div
       style={{
         width: "120px",
-        height: "80px",
+        height: "150px",
         borderRadius: "8px",
-        background: "linear-gradient(45deg, #ffeaa7, #fab1a0)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
+        overflow: "hidden",
       }}
     >
-      ☀️
+      <img
+        src="/images/pertama.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </div>,
-    "Kenangan Indah",
-    "Setiap momen sama kamu itu berharga. Tawa kamu bikin hari berat jadi ringan, dan sikapmu yang pengertian selalu bikin aku merasa dimengerti sepenuhnya.",
+    "gatau apa",
+    "intinya gni, aku selalu sayang kamu, kamu tau ga, aku ini banyak egonya, tapi makasih udah bertahan dan selalu jadi yang terbaik",
     20,
     60,
+  ],
+
+  [
+    <div
+      style={{
+        width: "120px",
+        height: "150px",
+        borderRadius: "8px",
+        overflow: "hidden",
+      }}
+    >
+      <img
+        src="/images/kedua.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    </div>,
+    "alasan kenapa sayang",
+    "aku sayang sama kamu bukan karena kamu cantik, aku gatau kenapa bisa suka dan sayang, yang jelas aku suka kamu, karena kamu baik, tolong jangan berubah jadi orang jahat ya sayang 😘",
+    60,
+    120,
   ],
   [
     <div
       style={{
         width: "120px",
-        height: "80px",
+        height: "150px",
         borderRadius: "8px",
-        background: "linear-gradient(45deg, #e84393, #fd79a8)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
+        overflow: "hidden",
       }}
     >
-      💕
+      <img
+        src="/images/ketujuh.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </div>,
-    "Cinta yang Tulus",
-    "Aku sayang kamu bukan cuma karena kamu cantik, tapi juga karena hatimu yang tulus. Kamu itu rumah teraman buat semua lelah dan bahagiaku.",
-    60,
-    120,
-  ],
-  [
-    <Camera className="w-8 h-8" />,
-    "Momen Bersama",
-    "Setiap foto kita adalah potongan cerita yang nggak akan pernah aku lupa. Aku mau simpan semua momen ini, sampai kita tua nanti.",
+    "pap",
+    "sayang pap ke aku yang banyak ya sayang, biar kalo kangen gampang, sekalian memperbanyak foto orang cantik 😋, ",
     100,
     160,
   ],
@@ -287,19 +326,23 @@ const loveStories: [React.ReactNode, string, string, number, number][] = [
     <div
       style={{
         width: "120px",
-        height: "80px",
+        height: "150px",
         borderRadius: "8px",
-        background: "linear-gradient(45deg, #a29bfe, #6c5ce7)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
+        overflow: "hidden",
       }}
     >
-      🎵
+      <img
+        src="/images/ketiga.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </div>,
-    "Lagu Cinta Kita",
-    "Suara kamu itu melodi yang nggak pernah bosen aku denger. Sama kamu, hidupku rasanya kayak lagu yang nadanya selalu pas.",
+    "lagu yang kamu suka",
+    "kamu suka lagu indo yang berkaitan dengan hubungan, aku tau itu, aku awalnya gasuka, tapi udh mulai menerima hal itu, apalagi kalo kamu nyanyi juga, aku mau denger sampe ayam beranak",
     180,
     220,
   ],
@@ -307,19 +350,23 @@ const loveStories: [React.ReactNode, string, string, number, number][] = [
     <div
       style={{
         width: "120px",
-        height: "80px",
+        height: "150px",
         borderRadius: "8px",
-        background: "linear-gradient(45deg, #00cec9, #55efc4)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
+        overflow: "hidden",
       }}
     >
-      🌟
+      <img
+        src="/images/kelima.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </div>,
-    "Masa Depan Kita",
-    "Mau kemana pun langkah kita, aku cuma mau satu hal: bareng kamu. Kita tulis cerita, jelajahi dunia, dan bikin kenangan yang nggak akan pernah selesai.",
+    "masa depan",
+    "mau kemana pun langkah kita, aku cuma mau satu hal: bareng kamu. Kita tulis cerita, jelajahi dunia, dan bikin kenangan yang nggak akan pernah selesai.",
     260,
     320,
   ],
@@ -327,26 +374,47 @@ const loveStories: [React.ReactNode, string, string, number, number][] = [
     <div
       style={{
         width: "120px",
-        height: "80px",
+        height: "150px",
         borderRadius: "8px",
-        background: "linear-gradient(45deg, #ff7675, #ff6b6b)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "2rem",
+        overflow: "hidden",
       }}
     >
-      🌹
+      <img
+        src="/images/keempat.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
     </div>,
-    "Janji Cinta",
-    "Aku berjanji akan selalu ada buat kamu. Lewat susah senang, gelap terang, aku akan pegang tanganmu dan nggak akan pernah lepas.",
+    "janji aku ke kamu",
+    "aku janji akan selalu ada buat kamu. aku akan selalu pegang tangan kamu dan nggak akan pernah lepas, jani ku ini ga akan pernah selesai selama kamu bareng aku dan selalu cukup sama aku",
     300,
     340,
   ],
   [
-    <MapPin className="w-8 h-8" />,
-    "Perjalanan Bersama",
-    "Setiap tempat yang kita kunjungi bersama jadi spesial. Bukan tempatnya yang bikin berkesan, tapi karena ada kamu di sampingku.",
+    <div
+      style={{
+        width: "120px",
+        height: "150px",
+        borderRadius: "8px",
+        overflow: "hidden",
+      }}
+    >
+      <img
+        src="/images/terakhir.jpg"
+        alt="Pertemuan Pertama"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    </div>,
+    "note terakhir",
+    "jangan lupa diett sayanggggggggg😁😁🤣",
     140,
     180,
   ],
