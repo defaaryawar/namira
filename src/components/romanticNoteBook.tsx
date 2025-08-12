@@ -142,7 +142,7 @@ const cardContainer: React.CSSProperties = {
   alignItems: "center",
   position: "relative",
   paddingTop: 20,
-  marginBottom: -20,
+  marginBottom: -40,
 };
 const splash: React.CSSProperties = {
   position: "absolute",
