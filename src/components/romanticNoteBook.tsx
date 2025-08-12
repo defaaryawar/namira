@@ -130,7 +130,7 @@ const footer: React.CSSProperties = {
 const footerText: React.CSSProperties = {
   fontSize: "clamp(1.3rem, 4vw, 1.8rem)",
   color: "#be185d",
-  marginTop: 30,
+  marginTop: 100,
   fontWeight: "bold",
   fontFamily: "serif",
 };
