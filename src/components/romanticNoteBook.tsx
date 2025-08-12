@@ -1,7 +1,7 @@
 import React from "react";
 import * as motion from "motion/react-client";
 import type { Variants } from "motion/react";
-import { Heart, Star, Sparkles, Camera, Music, MapPin } from "lucide-react";
+import { Heart, Camera, MapPin } from "lucide-react";
 
 export default function RomanticScrollNotebook() {
   return (
@@ -34,8 +34,7 @@ export default function RomanticScrollNotebook() {
 }
 
 interface CardProps {
-  icon?: React.ReactNode;
-  image?: string;
+  icon: React.ReactNode;
   title: string;
   message: string;
   hueA: number;
@@ -43,7 +42,7 @@ interface CardProps {
   i: number;
 }
 
-function Card({ icon, image, title, message, hueA, hueB, i }: CardProps) {
+function Card({ icon, title, message, hueA, hueB, i }: CardProps) {
   const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
 
   return (
@@ -56,27 +55,7 @@ function Card({ icon, image, title, message, hueA, hueB, i }: CardProps) {
     >
       <div style={{ ...splash, background }} />
       <motion.div style={card} variants={cardVariants} className="card">
-        {image && (
-          <img
-            src={image}
-            alt={title}
-            style={{
-              width: "100%",
-              height: 150,
-              objectFit: "cover",
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
-            }}
-          />
-        )}
-
-        {icon && (
-          <div style={iconContainer}>
-            {React.cloneElement(icon as React.ReactElement, {
-              className: "w-8 h-8 text-pink-600",
-            })}
-          </div>
-        )}
+        <motion.div style={iconContainer}>{icon}</motion.div>
 
         <motion.div
           style={textContainer}
@@ -86,6 +65,10 @@ function Card({ icon, image, title, message, hueA, hueB, i }: CardProps) {
           <h3 style={cardTitle}>{title}</h3>
           <p style={cardMessage}>{message}</p>
         </motion.div>
+
+        {/* Floating particles */}
+        <motion.div style={particle1}>✨</motion.div>
+        <motion.div style={particle2}>💖</motion.div>
       </motion.div>
     </motion.div>
   );
@@ -178,6 +161,7 @@ const card: React.CSSProperties = {
   width: 300,
   height: 430,
   display: "flex",
+  flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   borderRadius: 20,
@@ -188,9 +172,10 @@ const card: React.CSSProperties = {
 };
 
 const iconContainer: React.CSSProperties = {
-  marginBottom: 0,
+  marginBottom: 20,
   color: "#be185d",
   display: "flex",
+  justifyContent: "center",
   alignItems: "center",
 };
 
@@ -245,45 +230,124 @@ const particle2: React.CSSProperties = {
  */
 const loveStories: [React.ReactNode, string, string, number, number][] = [
   [
-    <Heart className="w-12 h-12 sm:w-16 sm:h-16" />,
+    <Heart className="w-8 h-8" />,
     "Pertama Bertemu",
     "Waktu pertama lihat kamu, Najmita, rasanya dunia berhenti sebentar. Ada sesuatu di senyummu yang bikin hati ini yakin, kamu orang yang selama ini aku tunggu.",
     340,
     10,
   ],
   [
-    <Star className="w-12 h-12 sm:w-16 sm:h-16" />,
+    <div
+      style={{
+        width: "120px",
+        height: "80px",
+        borderRadius: "8px",
+        background: "linear-gradient(45deg, #ffeaa7, #fab1a0)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+      }}
+    >
+      ☀️
+    </div>,
     "Kenangan Indah",
     "Setiap momen sama kamu itu berharga. Tawa kamu bikin hari berat jadi ringan, dan sikapmu yang pengertian selalu bikin aku merasa dimengerti sepenuhnya.",
     20,
     60,
   ],
   [
-    <Sparkles className="w-12 h-12 sm:w-16 sm:h-16" />,
+    <div
+      style={{
+        width: "120px",
+        height: "80px",
+        borderRadius: "8px",
+        background: "linear-gradient(45deg, #e84393, #fd79a8)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+      }}
+    >
+      💕
+    </div>,
     "Cinta yang Tulus",
     "Aku sayang kamu bukan cuma karena kamu cantik, tapi juga karena hatimu yang tulus. Kamu itu rumah teraman buat semua lelah dan bahagiaku.",
     60,
     120,
   ],
   [
-    <Camera className="w-12 h-12 sm:w-16 sm:h-16" />,
+    <Camera className="w-8 h-8" />,
     "Momen Bersama",
     "Setiap foto kita adalah potongan cerita yang nggak akan pernah aku lupa. Aku mau simpan semua momen ini, sampai kita tua nanti.",
     100,
     160,
   ],
   [
-    <Music className="w-12 h-12 sm:w-16 sm:h-16" />,
+    <div
+      style={{
+        width: "120px",
+        height: "80px",
+        borderRadius: "8px",
+        background: "linear-gradient(45deg, #a29bfe, #6c5ce7)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+      }}
+    >
+      🎵
+    </div>,
     "Lagu Cinta Kita",
     "Suara kamu itu melodi yang nggak pernah bosen aku denger. Sama kamu, hidupku rasanya kayak lagu yang nadanya selalu pas.",
     180,
     220,
   ],
   [
-    <MapPin className="w-12 h-12 sm:w-16 sm:h-16" />,
+    <div
+      style={{
+        width: "120px",
+        height: "80px",
+        borderRadius: "8px",
+        background: "linear-gradient(45deg, #00cec9, #55efc4)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+      }}
+    >
+      🌟
+    </div>,
     "Masa Depan Kita",
     "Mau kemana pun langkah kita, aku cuma mau satu hal: bareng kamu. Kita tulis cerita, jelajahi dunia, dan bikin kenangan yang nggak akan pernah selesai.",
     260,
     320,
+  ],
+  [
+    <div
+      style={{
+        width: "120px",
+        height: "80px",
+        borderRadius: "8px",
+        background: "linear-gradient(45deg, #ff7675, #ff6b6b)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+      }}
+    >
+      🌹
+    </div>,
+    "Janji Cinta",
+    "Aku berjanji akan selalu ada buat kamu. Lewat susah senang, gelap terang, aku akan pegang tanganmu dan nggak akan pernah lepas.",
+    300,
+    340,
+  ],
+  [
+    <MapPin className="w-8 h-8" />,
+    "Perjalanan Bersama",
+    "Setiap tempat yang kita kunjungi bersama jadi spesial. Bukan tempatnya yang bikin berkesan, tapi karena ada kamu di sampingku.",
+    140,
+    180,
   ],
 ];
