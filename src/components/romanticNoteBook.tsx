@@ -1,7 +1,7 @@
 import React from "react";
 import * as motion from "motion/react-client";
 import type { Variants } from "motion/react";
-import { Heart, Camera, MapPin } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function RomanticScrollNotebook() {
   return (
